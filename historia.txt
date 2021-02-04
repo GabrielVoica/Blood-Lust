@@ -1,0 +1,21 @@
+History:
+
+A long long time ago, a powerfull magician casted a spell to curse all of the habitants of the Kernel reign.
+
+Your family vanished, and their souls remain traped inside the magician tower. 
+
+Surpass all the levels, and kill the almighty magician called Linus, in order to save your family and their souls.
+
+
+Level 1 --> The castle backyard
+
+Level 2--> The castle hall
+
+Level 3--> The king's room (Boss, the cursed King)
+
+Level 4--> The Tower (Boss, The two headed dog)
+
+Level 5 --> The entrance 
+
+Level 6 --> The magician Room
+
