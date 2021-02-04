@@ -9,9 +9,40 @@ var simpleLevelPlan = `
 ......##############..
 ......................`;
 
+let lives = 5;
+
+let heartIconArray = [
+  '<i class="fas fa-heart fa-2x"></i>',
+  '<i class="fas fa-heart fa-2x"></i>',
+  '<i class="fas fa-heart fa-2x"></i>',
+  '<i class="fas fa-heart fa-2x"></i>',
+  '<i class="fas fa-heart fa-2x"></i>',
+];
+
 setTimeout(() => {
+  document.querySelector(".div-one").style.display = "none";
+  document.querySelector(".div-two").style.display = "flex";
+}, 5000);
+
+setTimeout(() => {
+  document.querySelector(".div-two").style.display = "none";
+  document.querySelector(".div-three").style.display = "flex";
+}, 10000);
+
+setTimeout(() => {
+  document.querySelector(".div-three").style.display = "none";
+  document.querySelector(".div-four").style.display = "flex";
+}, 15000);
+
+setTimeout(() => {
+  document.querySelector(".div-four").style.display = "none";
+  document.querySelector(".div-five").style.display = "flex";
+}, 20000);
+
+setTimeout(() => {
+  document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-}, 2000);
+}, 28000);
 
 var Level = class Level {
   constructor(plan) {
@@ -251,6 +282,9 @@ State.prototype.update = function (time, keys) {
 
   let player = newState.player;
   if (this.level.touches(player.pos, player.size, "lava")) {
+    heartIconArray.pop();
+    document.querySelector(".heart-div").innerHTML = heartIconArray;
+    lives--;
     return new State(this.level, actors, "lost");
   }
 
