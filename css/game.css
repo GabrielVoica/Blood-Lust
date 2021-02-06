@@ -61,17 +61,23 @@ body {
   }
 }
 
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 .lost .player {
   background: rgb(160, 64, 64);
 }
 .won .player {
-  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+  box-shadow: 0px 0px 8px 5px rgb(8, 3, 3), 0px -20px 18px 9px rgb(255, 217, 0);
 }
 
 /* Page styles */
 
 .top-ui {
-  background: rgb(20, 20, 20);
+  background: black;
   color: white;
   top: 0;
   width: 100%;
@@ -97,7 +103,7 @@ body {
 }
 
 .bottom-ui {
-  background: rgb(20, 20, 20);
+  background: black;
   color: white;
   position: absolute;
   bottom: -10%;
@@ -111,6 +117,10 @@ body {
   width: 100%;
   background: black;
   z-index: 10;
+}
+
+.enemy {
+  background: rgb(92, 83, 32);
 }
 
 .div-one {
@@ -176,6 +186,52 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
+}
+
+.how-toplay-div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-howtoplay {
+  position: absolute;
+  height: 70%;
+  width: 100%;
+  z-index: 200;
+  background: linear-gradient(rgb(94, 1, 1), rgba(22, 5, 5, 1));
+  box-shadow: 0px 0px 5px 5px red;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.game-howtoplay div {
+  font-family: Arial;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: bold;
+  position: relative;
+  border: 1px solid black;
+}
+
+#close-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: black;
+  cursor: pointer;
 }
 
 @keyframes animate-divs {

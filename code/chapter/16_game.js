@@ -22,27 +22,31 @@ let heartIconArray = [
 setTimeout(() => {
   document.querySelector(".div-one").style.display = "none";
   document.querySelector(".div-two").style.display = "flex";
-}, 5000);
+}, 6000);
 
 setTimeout(() => {
   document.querySelector(".div-two").style.display = "none";
   document.querySelector(".div-three").style.display = "flex";
-}, 10000);
+}, 12000);
 
 setTimeout(() => {
   document.querySelector(".div-three").style.display = "none";
   document.querySelector(".div-four").style.display = "flex";
-}, 15000);
+}, 18000);
 
 setTimeout(() => {
   document.querySelector(".div-four").style.display = "none";
   document.querySelector(".div-five").style.display = "flex";
-}, 20000);
+}, 24000);
 
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-}, 25000);
+}, 32000);
+
+let removeInfo = () => {
+  document.querySelector(".how-toplay-div").style.display = "none";
+};
 
 var Level = class Level {
   constructor(plan) {
@@ -119,12 +123,12 @@ var Lava = class Lava {
   }
 
   get type() {
-    return "lava";
+    return "enemy";
   }
 
   static create(pos, ch) {
     if (ch == "=") {
-      return new Lava(pos, new Vec(2, 0));
+      return new Lava(pos, new Vec(5, 0));
     } else if (ch == "|") {
       return new Lava(pos, new Vec(0, 2));
     } else if (ch == "v") {
