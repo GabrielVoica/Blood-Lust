@@ -26,7 +26,7 @@ class Ball {
     c.arc(this.x, this.y, this.r, 0, Math.PI * 0.4, false);
     c.fillStyle = this.color;
     c.fill();
-    c.strokeStyle = "white";
+    c.strokeStyle = "red";
     c.stroke();
   }
 

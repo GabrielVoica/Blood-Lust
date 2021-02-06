@@ -22,27 +22,29 @@ let heartIconArray = [
 setTimeout(() => {
   document.querySelector(".div-one").style.display = "none";
   document.querySelector(".div-two").style.display = "flex";
-}, 6000);
+}, 5000);
 
 setTimeout(() => {
   document.querySelector(".div-two").style.display = "none";
   document.querySelector(".div-three").style.display = "flex";
-}, 12000);
+}, 10000);
 
 setTimeout(() => {
   document.querySelector(".div-three").style.display = "none";
   document.querySelector(".div-four").style.display = "flex";
-}, 18000);
+}, 15000);
 
 setTimeout(() => {
   document.querySelector(".div-four").style.display = "none";
   document.querySelector(".div-five").style.display = "flex";
-}, 24000);
+}, 20000);
 
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-}, 32000);
+  let track = document.getElementById("audioPlayer");
+  track.play();
+}, 28000);
 
 let removeInfo = () => {
   document.querySelector(".how-toplay-div").style.display = "none";
@@ -433,8 +435,15 @@ async function runGame(plans, Display) {
     if (status == "won") level++;
     setTimeout(() => {
       if (level === 1) {
-        document.querySelector(".background").style.background =
-          "url(../assets/second-level-background.gif";
+        document.querySelector(".background").style.background = "#420000";
+      } else if (level === 2) {
+        document.querySelector(".background").style.background = "#610000";
+      } else if (level === 3) {
+        document.querySelector(".background").style.background = "#870000";
+      } else if (level === 4) {
+        document.querySelector(".background").style.background = "#B40000";
+      } else if (level === 5) {
+        document.querySelector(".background").style.background = "#870000";
       }
     }, 100);
   }
