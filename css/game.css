@@ -25,15 +25,16 @@ body {
   background-size: 50%;
   table-layout: fixed;
   border-spacing: 0;
+  opacity: 0.6;
 }
 .background td {
   padding: 0;
 }
 .lava {
-  background: linear-gradient(90deg, rgb(255, 115, 0), rgb(223, 90, 2));
+  background: linear-gradient(90deg, rgb(255, 51, 0), rgb(255, 0, 0));
 }
 .wall {
-  background: linear-gradient(rgb(153, 105, 60), rgb(68, 54, 10));
+  background: url(../assets/wall-back.jpg);
 }
 
 .actor {
@@ -43,7 +44,8 @@ body {
   background: rgb(241, 229, 89);
 }
 .player {
-  background: rgb(64, 64, 64);
+  background: linear-gradient(rgb(255, 230, 0), rgb(0, 0, 0));
+  opacity: 2;
 }
 
 .game {
@@ -83,11 +85,15 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 50%;
+  color: black;
+}
+
+.heart-div i {
   color: red;
 }
 
 .heart-div i {
-  margin: 0px 5px;
+  margin: 0px 1px;
 }
 
 .bottom-ui {

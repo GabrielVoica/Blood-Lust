@@ -42,7 +42,7 @@ setTimeout(() => {
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-}, 28000);
+}, 25000);
 
 var Level = class Level {
   constructor(plan) {
@@ -306,13 +306,20 @@ function overlap(actor1, actor2) {
 }
 
 Lava.prototype.collide = function (state) {
+  heartIconArray.pop();
+  document.querySelector(".heart-div").innerHTML = heartIconArray;
+  lives--;
   return new State(state.level, state.actors, "lost");
 };
 
 Coin.prototype.collide = function (state) {
   let filtered = state.actors.filter((a) => a != this);
   let status = state.status;
-  if (!filtered.some((a) => a.type == "coin")) status = "won";
+  if (!filtered.some((a) => a.type == "coin")) {
+    status = "won";
+    playerXSpeed += 1;
+    gravity -= 0.3;
+  }
   return new State(state.level, filtered, status);
 };
 
@@ -340,7 +347,7 @@ Coin.prototype.update = function (time) {
   );
 };
 
-var playerXSpeed = 7;
+var playerXSpeed = 8;
 var gravity = 30;
 var jumpSpeed = 17;
 
@@ -420,6 +427,12 @@ async function runGame(plans, Display) {
   for (let level = 0; level < plans.length; ) {
     let status = await runLevel(new Level(plans[level]), Display);
     if (status == "won") level++;
+    setTimeout(() => {
+      if (level === 1) {
+        document.querySelector(".background").style.background =
+          "url(../assets/second-level-background.gif";
+      }
+    }, 100);
   }
   console.log("You've won!");
 }
