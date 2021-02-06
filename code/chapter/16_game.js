@@ -42,12 +42,12 @@ setTimeout(() => {
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-  let track = document.getElementById("audioPlayer");
-  track.play();
 }, 28000);
 
 let removeInfo = () => {
   document.querySelector(".how-toplay-div").style.display = "none";
+  let track = document.getElementById("audioPlayer");
+  track.play();
 };
 
 var Level = class Level {
