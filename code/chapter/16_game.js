@@ -288,6 +288,9 @@ State.prototype.update = function (time, keys) {
 
   let player = newState.player;
   if (this.level.touches(player.pos, player.size, "lava")) {
+    if (lives == 1) {
+      document.querySelector(".you-lose-screen").style.display = "flex";
+    }
     heartIconArray.pop();
     document.querySelector(".heart-div").innerHTML = heartIconArray;
     lives--;
@@ -432,10 +435,32 @@ function runLevel(level, Display) {
   });
 }
 
+let resetGame = () => {
+  level = 0;
+  heartIconArray = [
+    '<i class="fas fa-heart fa-2x"></i>',
+    '<i class="fas fa-heart fa-2x"></i>',
+    '<i class="fas fa-heart fa-2x"></i>',
+    '<i class="fas fa-heart fa-2x"></i>',
+    '<i class="fas fa-heart fa-2x"></i>',
+  ];
+  lives = 5;
+  document.querySelector(".you-lose-screen").style.display = "none";
+};
+
 async function runGame(plans, Display) {
   for (let level = 0; level < plans.length; ) {
     let status = await runLevel(new Level(plans[level]), Display);
+
+    await setTimeout(() => {
+      document.querySelector(".heart-div").innerHTML = heartIconArray;
+    }, 500);
+
     if (status == "won") level++;
+
+    if (status == "lost" && lives === 0) {
+      level = 0;
+    }
     setTimeout(() => {
       if (level === 1) {
         document.querySelector(".background").style.background = "#420000";
@@ -446,7 +471,7 @@ async function runGame(plans, Display) {
       } else if (level === 4) {
         document.querySelector(".background").style.background = "#C80101";
       } else if (level === 5) {
-        document.querySelector(".background").style.background = "#C80101";
+        document.querySelector(".background").style.background = "##420000";
       }
     }, 100);
   }

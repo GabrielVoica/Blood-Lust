@@ -258,9 +258,35 @@ body {
   position: absolute;
   top: 30px;
   right: 30px;
-  color: black;
+  color: white;
   cursor: pointer;
 }
+
+.you-lose-screen {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: -1;
+  top: 0;
+  background: rgb(0, 0, 0);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.you-lose-screen button{
+ height: 100px;
+ width: 200px;
+ background: red;
+ color: white;
+ cursor: pointer;
+}
+
+
 
 @media (max-width: 1000px) {
   .bottom-ui {
