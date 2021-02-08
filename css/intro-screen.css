@@ -108,7 +108,8 @@ main button {
 }
 
 main button:hover {
-  background: url(../assets/elec-gif.gif);
+  background: red;
+  color: black;
   background-size: cover;
 }
 

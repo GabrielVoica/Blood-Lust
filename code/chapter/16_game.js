@@ -361,7 +361,9 @@ Player.prototype.update = function (time, state, keys) {
   let xSpeed = 0;
   if (keys.ArrowLeft) xSpeed -= playerXSpeed;
   if (keys.ArrowRight) xSpeed += playerXSpeed;
+
   let pos = this.pos;
+
   let movedX = pos.plus(new Vec(xSpeed * time, 0));
   if (!state.level.touches(movedX, this.size, "wall")) {
     pos = movedX;
@@ -389,6 +391,7 @@ function trackKeys(keys) {
   }
   window.addEventListener("keydown", track);
   window.addEventListener("keyup", track);
+
   return down;
 }
 
@@ -441,9 +444,9 @@ async function runGame(plans, Display) {
       } else if (level === 3) {
         document.querySelector(".background").style.background = "#870000";
       } else if (level === 4) {
-        document.querySelector(".background").style.background = "#B40000";
+        document.querySelector(".background").style.background = "#C80101";
       } else if (level === 5) {
-        document.querySelector(".background").style.background = "#870000";
+        document.querySelector(".background").style.background = "#C80101";
       }
     }, 100);
   }
