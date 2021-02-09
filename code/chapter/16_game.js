@@ -452,14 +452,22 @@ async function runGame(plans, Display) {
   for (let level = 0; level < plans.length; ) {
     let status = await runLevel(new Level(plans[level]), Display);
 
-    await setTimeout(() => {
-      document.querySelector(".heart-div").innerHTML = heartIconArray;
-    }, 500);
-
     if (status == "won") level++;
 
-    if (status == "lost" && lives === 0) {
+    if (status == "lost" && lives <= 0) {
       level = 0;
+      lives = 5;
+      document.querySelector(".you-lose-screen").display = "flex";
+      heartIconArray = [
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+      ];
+      document.querySelector(".heart-div").innerHTML = heartIconArray;
+      playerXSpeed += 1;
+      gravity -= 0.3;
     }
     setTimeout(() => {
       if (level === 1) {
