@@ -55,7 +55,7 @@ setTimeout(() => {
     speedAdder = 0;
   });
   document.getElementById("jump").addEventListener("touchstart", () => {
-    jumpAdder = 26;
+    jumpAdder = 18;
   });
   document.getElementById("jump").addEventListener("touchend", () => {
     jumpAdder = 0;
