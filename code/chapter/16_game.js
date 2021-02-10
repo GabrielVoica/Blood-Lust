@@ -22,22 +22,22 @@ let heartIconArray = [
 setTimeout(() => {
   document.querySelector(".div-one").style.display = "none";
   document.querySelector(".div-two").style.display = "flex";
-}, 500);
+}, 3000);
 
 setTimeout(() => {
   document.querySelector(".div-two").style.display = "none";
   document.querySelector(".div-three").style.display = "flex";
-}, 100);
+}, 6000);
 
 setTimeout(() => {
   document.querySelector(".div-three").style.display = "none";
   document.querySelector(".div-four").style.display = "flex";
-}, 1000);
+}, 9000);
 
 setTimeout(() => {
   document.querySelector(".div-four").style.display = "none";
   document.querySelector(".div-five").style.display = "flex";
-}, 2000);
+}, 12000);
 
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
@@ -60,7 +60,7 @@ setTimeout(() => {
   document.getElementById("jump").addEventListener("touchend", () => {
     jumpAdder = 0;
   });
-}, 200);
+}, 17000);
 
 let removeInfo = () => {
   document.querySelector(".how-toplay-div").style.display = "none";

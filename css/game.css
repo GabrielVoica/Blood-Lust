@@ -87,7 +87,7 @@ body {
   align-items: center;
 }
 
-.top-ui i{
+.top-ui i {
   margin: 15px;
   cursor: pointer;
 }
@@ -118,14 +118,14 @@ body {
 }
 
 .bottom-ui button {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   background: rgb(133, 36, 36);
   box-shadow: 0px 0px 1px 1px white;
   color: rgb(32, 11, 11);
 }
-.bottom-ui button i{
+.bottom-ui button i {
   height: 30%;
   width: 30%;
 }
@@ -145,7 +145,7 @@ body {
 .right-button {
   grid-column: 3;
   grid-row: 3;
-  justify-self: flex-start ;
+  justify-self: flex-start;
 }
 
 .intro-story-divs {
@@ -240,8 +240,8 @@ body {
   height: 70%;
   width: 100%;
   z-index: 200;
-  background: linear-gradient(rgb(94, 1, 1), rgba(22, 5, 5, 1));
-  box-shadow: 0px 0px 5px 5px red;
+  background: linear-gradient(rgb(94, 1, 1), rgb(0, 0, 0));
+  
   display: flex;
   justify-content: center;
   justify-content: center;
@@ -249,7 +249,7 @@ body {
   color: white;
 }
 
-.game-howtoplay div  {
+.game-howtoplay div {
   font-family: Arial;
   width: 80%;
   height: 100%;
@@ -260,7 +260,6 @@ body {
   text-align: center;
   font-size: bold;
   position: relative;
-
 }
 
 #close-icon {
@@ -278,8 +277,8 @@ body {
   position: absolute;
   left: -1;
   top: 0;
-  background: url(../assets/lost-background.jpg);
-  z-index: 100;
+  background: linear-gradient(rgb(255, 0, 0), rgba(0, 0, 0, 1));
+  z-index: 5000;
   justify-content: center;
   align-items: center;
   color: white;
@@ -296,7 +295,7 @@ body {
   cursor: pointer;
 }
 
-.you-win-screen{
+.you-win-screen {
   display: none;
   height: 100%;
   width: 100%;
@@ -310,9 +309,10 @@ body {
   color: rgb(255, 255, 255);
   flex-direction: column;
   font-family: "Courier New", Courier, monospace;
+  z-index: 5000;
 }
 
-.you-win-screen button{
+.you-win-screen button {
   height: 100px;
   width: 200px;
   background: green;
@@ -321,28 +321,26 @@ body {
   border: 1px solid white;
 }
 
-.game-help{
+.game-help {
   width: 0%;
   height: 0%;
 }
 
 @media (max-width: 1000px) {
   .bottom-ui {
-
     z-index: 100;
     grid-template-columns: 33%, 33%, 33%;
     grid-template-rows: 33%, 33%, 33%;
   }
 
- .intro-story-divs h1 {
-   font-size: 2rem;
-   text-align: center;
-}
-.intro-story-divs {
-  height:80%;
-  width: 100%;
-}
-
+  .intro-story-divs h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .intro-story-divs {
+    height: 80%;
+    width: 100%;
+  }
 }
 
 @keyframes animate-divs {
