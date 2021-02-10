@@ -55,7 +55,7 @@ setTimeout(() => {
     speedAdder = 0;
   });
   document.getElementById("jump").addEventListener("touchstart", () => {
-    jumpAdder = 15;
+    jumpAdder = 26;
   });
   document.getElementById("jump").addEventListener("touchend", () => {
     jumpAdder = 0;
@@ -65,6 +65,7 @@ setTimeout(() => {
 let removeInfo = () => {
   document.querySelector(".how-toplay-div").style.display = "none";
   let track = document.getElementById("audioPlayer");
+
   if (window.innerWidth <= 1000) {
     document.querySelector(".bottom-ui").style.display = "grid";
   }
