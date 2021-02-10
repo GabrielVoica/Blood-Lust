@@ -22,31 +22,52 @@ let heartIconArray = [
 setTimeout(() => {
   document.querySelector(".div-one").style.display = "none";
   document.querySelector(".div-two").style.display = "flex";
-}, 5000);
+}, 500);
 
 setTimeout(() => {
   document.querySelector(".div-two").style.display = "none";
   document.querySelector(".div-three").style.display = "flex";
-}, 10000);
+}, 100);
 
 setTimeout(() => {
   document.querySelector(".div-three").style.display = "none";
   document.querySelector(".div-four").style.display = "flex";
-}, 15000);
+}, 1000);
 
 setTimeout(() => {
   document.querySelector(".div-four").style.display = "none";
   document.querySelector(".div-five").style.display = "flex";
-}, 20000);
+}, 2000);
 
 setTimeout(() => {
   document.querySelector(".intro-story-divs").style.display = "none";
   runGame(GAME_LEVELS, DOMDisplay);
-}, 28000);
+  document.getElementById("right").addEventListener("touchstart", () => {
+    speedAdder = 7;
+  });
+  document.getElementById("right").addEventListener("touchend", () => {
+    speedAdder = 0;
+  });
+  document.getElementById("left").addEventListener("touchstart", () => {
+    speedAdder = -7;
+  });
+  document.getElementById("left").addEventListener("touchend", () => {
+    speedAdder = 0;
+  });
+  document.getElementById("jump").addEventListener("touchstart", () => {
+    jumpAdder = 15;
+  });
+  document.getElementById("jump").addEventListener("touchend", () => {
+    jumpAdder = 0;
+  });
+}, 200);
 
 let removeInfo = () => {
   document.querySelector(".how-toplay-div").style.display = "none";
   let track = document.getElementById("audioPlayer");
+  if (window.innerWidth <= 1000) {
+    document.querySelector(".bottom-ui").style.display = "grid";
+  }
   track.play();
 };
 
@@ -287,6 +308,7 @@ State.prototype.update = function (time, keys) {
   if (newState.status != "playing") return newState;
 
   let player = newState.player;
+
   if (this.level.touches(player.pos, player.size, "lava")) {
     if (lives == 1) {
       document.querySelector(".you-lose-screen").style.display = "flex";
@@ -360,18 +382,19 @@ var playerXSpeed = 8;
 var gravity = 30;
 var jumpSpeed = 17;
 
+let speedAdder = 0;
+let jumpAdder = 0;
+
 Player.prototype.update = function (time, state, keys) {
-  let xSpeed = 0;
+  let xSpeed = speedAdder;
   if (keys.ArrowLeft) xSpeed -= playerXSpeed;
   if (keys.ArrowRight) xSpeed += playerXSpeed;
-
   let pos = this.pos;
 
   let movedX = pos.plus(new Vec(xSpeed * time, 0));
   if (!state.level.touches(movedX, this.size, "wall")) {
     pos = movedX;
   }
-
   let ySpeed = this.speed.y + time * gravity;
   let movedY = pos.plus(new Vec(0, ySpeed * time));
   if (!state.level.touches(movedY, this.size, "wall")) {
@@ -379,7 +402,7 @@ Player.prototype.update = function (time, state, keys) {
   } else if (keys.ArrowUp && ySpeed > 0) {
     ySpeed = -jumpSpeed;
   } else {
-    ySpeed = 0;
+    ySpeed = -jumpAdder;
   }
   return new Player(pos, new Vec(xSpeed, ySpeed));
 };
@@ -453,11 +476,20 @@ async function runGame(plans, Display) {
     let status = await runLevel(new Level(plans[level]), Display);
 
     if (status == "won") level++;
-
+    if (lives <= 0) {
+      heartIconArray = [
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+        '<i class="fas fa-heart fa-2x"></i>',
+      ];
+    }
     if (status == "lost" && lives <= 0) {
       level = 0;
       lives = 5;
       document.querySelector(".you-lose-screen").display = "flex";
+
       heartIconArray = [
         '<i class="fas fa-heart fa-2x"></i>',
         '<i class="fas fa-heart fa-2x"></i>',
@@ -483,5 +515,5 @@ async function runGame(plans, Display) {
       }
     }, 100);
   }
-  console.log("You've won!");
+  document.querySelector(".you-win-screen").display = "flex";
 }

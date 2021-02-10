@@ -87,6 +87,11 @@ body {
   align-items: center;
 }
 
+.top-ui i{
+  margin: 15px;
+  cursor: pointer;
+}
+
 .heart-div {
   display: flex;
   justify-content: center;
@@ -119,6 +124,10 @@ body {
   background: rgb(133, 36, 36);
   box-shadow: 0px 0px 1px 1px white;
   color: rgb(32, 11, 11);
+}
+.bottom-ui button i{
+  height: 30%;
+  width: 30%;
 }
 
 .jump-button {
@@ -240,9 +249,9 @@ body {
   color: white;
 }
 
-.game-howtoplay div {
+.game-howtoplay div  {
   font-family: Arial;
-  width: 50%;
+  width: 80%;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -251,7 +260,7 @@ body {
   text-align: center;
   font-size: bold;
   position: relative;
-  border: 1px solid black;
+
 }
 
 #close-icon {
@@ -269,11 +278,12 @@ body {
   position: absolute;
   left: -1;
   top: 0;
-  background: rgb(0, 0, 0);
+  background: url(../assets/lost-background.jpg);
   z-index: 100;
   justify-content: center;
   align-items: center;
-  color: red;
+  color: white;
+  font-weight: bold;
   flex-direction: column;
   font-family: "Courier New", Courier, monospace;
 }
@@ -311,13 +321,28 @@ body {
   border: 1px solid white;
 }
 
+.game-help{
+  width: 0%;
+  height: 0%;
+}
+
 @media (max-width: 1000px) {
   .bottom-ui {
-    display: grid;
+
     z-index: 100;
     grid-template-columns: 33%, 33%, 33%;
     grid-template-rows: 33%, 33%, 33%;
   }
+
+ .intro-story-divs h1 {
+   font-size: 2rem;
+   text-align: center;
+}
+.intro-story-divs {
+  height:80%;
+  width: 100%;
+}
+
 }
 
 @keyframes animate-divs {
